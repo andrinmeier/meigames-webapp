@@ -1,5 +1,4 @@
 import { Container } from '@mui/material';
-import PlausibleProvider from 'next-plausible';
 import React from 'react';
 import Footer from './Footer';
 import NavBar from './NavBar';
@@ -7,15 +6,15 @@ import NavBar from './NavBar';
 const Layout = (props: any) => {
     const { children } = props;
     return (
-            <div className='layout'>
-                <NavBar />
-                <main>
-                    <Container>
-                        {children}
-                    </Container>
-                </main>
-                <Footer />
-            </div>
+        <div className='layout'>
+            <NavBar />
+            <main>
+                <Container>
+                    {children}
+                </Container>
+            </main>
+            <Footer />
+        </div>
     )
 }
 
