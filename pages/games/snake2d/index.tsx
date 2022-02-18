@@ -2,6 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useRef, useState } from 'react';
 import { Game } from 'meigames-snake2d';
+import Image from 'next/image';
+import titleImage from '../../../public/snake2d_title.png';
 
 const Snake2DPage: NextPage = () => {
   const canvasRef = useRef(null);
@@ -40,7 +42,9 @@ const Snake2DPage: NextPage = () => {
           key="desc"
         />
       </Head>
-      <h1>Snake 2D</h1>
+      <Image
+        src={titleImage}
+        alt="Snake 2D"/>
       <p>{score}</p>
       <canvas ref={canvasRef} id="snake2d-canvas" style={{ width: "100%", height: "100%" }} />
     </div>

@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 const NavBar = () => {
     return (
         <header>
-            <AppBar position="static">
+            <AppBar position="static" style={{ background: "#51279B" }}>
                 <Toolbar disableGutters={true} variant="dense" sx={{ paddingLeft: 2 }}>
                     <Link href="/" color="inherit" underline="none"><Typography>MeiGames</Typography></Link>
                 </Toolbar>

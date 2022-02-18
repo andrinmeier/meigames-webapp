@@ -18,8 +18,8 @@ const Layout = (props: any) => {
                 <meta name="theme-color" content="#ffffff" />
             </Head>
             <NavBar />
-            <main>
-                <Container>
+            <main style={{ background: "#F7F7F7" }}>
+                <Container sx={{ marginTop: 2, marginBottom: 2 }}>
                     {children}
                 </Container>
             </main>
