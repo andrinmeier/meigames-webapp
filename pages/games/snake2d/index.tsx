@@ -58,19 +58,13 @@ const Snake2DPage: NextPage = () => {
           </Grid>
           <Grid item xs={12}>
             <FullScreen handle={fullScreenHandle}>
-              <Grid container>
-                <Grid item xs={12}>
-                  <canvas ref={canvasRef} id="snake2d-canvas" style={{ border: "4px solid #51279B", borderRadius: "0.5em", width: "100%" }} />
-                </Grid>
-                <Grid item xs={12} visibility={ fullScreenHandle.active ? "visible" : "hidden" }>
-                  <IconButton color="primary" aria-label="Restart game" component="span" onClick={startGame}>
-                    <ReplayIcon />
-                  </IconButton>
-                  <IconButton color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.exit}>
-                    <FullscreenExitIcon />
-                  </IconButton>
-                </Grid>
-              </Grid>
+              <canvas ref={canvasRef} id="snake2d-canvas" style={{ border: "4px solid #51279B", borderRadius: "0.5em", width: "100%" }} />
+              <IconButton sx={{ visibility: fullScreenHandle.active ? "visible": "hidden" }} color="primary" aria-label="Restart game" component="span" onClick={startGame}>
+                <ReplayIcon />
+              </IconButton>
+              <IconButton sx={{ visibility: fullScreenHandle.active ? "visible": "hidden" }} color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.exit}>
+                <FullscreenExitIcon />
+              </IconButton>
             </FullScreen>
           </Grid>
           <Grid item xs={12}>
