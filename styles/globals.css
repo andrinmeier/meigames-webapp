@@ -5,9 +5,3 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #F7F7F7;
 }
-
-.game-canvas {
-    max-width: 512px;
-    object-fit: cover;
-    overflow: hidden;
-}
