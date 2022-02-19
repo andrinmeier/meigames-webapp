@@ -5,7 +5,7 @@ import { Game } from 'meigames-snake2d';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image'
 import snakeTitleImage from '../../../public/snake2d_title.png';
-import { Grid, IconButton, Paper } from '@mui/material';
+import { Grid, IconButton, Paper, Box } from '@mui/material';
 import ReplayIcon from '@mui/icons-material/Replay';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
@@ -58,13 +58,15 @@ const Snake2DPage: NextPage = () => {
           </Grid>
           <Grid item xs={12}>
             <FullScreen handle={fullScreenHandle}>
-              <canvas ref={canvasRef} id="snake2d-canvas" style={{ border: "4px solid #51279B", borderRadius: "0.5em", width: "100%" }} />
-              <IconButton sx={{ visibility: fullScreenHandle.active ? "visible": "hidden" }} color="primary" aria-label="Restart game" component="span" onClick={startGame}>
-                <ReplayIcon />
-              </IconButton>
-              <IconButton sx={{ visibility: fullScreenHandle.active ? "visible": "hidden" }} color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.exit}>
-                <FullscreenExitIcon />
-              </IconButton>
+              <canvas ref={canvasRef} id="snake2d-canvas" className="game-canvas" />
+              <Box sx={{ display: fullScreenHandle.active ? "block" : "none", margin: 2 }}>
+                <IconButton size="large" color="primary" aria-label="Restart game" component="span" onClick={startGame}>
+                  <ReplayIcon />
+                </IconButton>
+                <IconButton size="large" color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.exit}>
+                  <FullscreenExitIcon />
+                </IconButton>
+              </Box>
             </FullScreen>
           </Grid>
           <Grid item xs={12}>
