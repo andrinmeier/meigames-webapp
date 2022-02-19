@@ -68,7 +68,7 @@ const Snake2DPage: NextPage = () => {
               How to play (desktop)
             </Typography>
             <Typography variant="subtitle1" color="text.secondary" component="div">
-              Use <b>A</b> to rotate left and <b>D</b> to rotate left.
+              Use <b>A</b> to rotate left and <b>D</b> to rotate right.
               <br />
               Try to eat as much food as you can without hitting yourself or the wall.
             </Typography>
