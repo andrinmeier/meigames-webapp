@@ -45,7 +45,7 @@ const Snake2DPage: NextPage = () => {
           key="desc"
         />
       </Head>
-      <img alt="Snake 2D" src={require('../../../public/snake2d_title.png')} />
+      <img alt="Snake 2D" src="/snake2d_title.png"/>
       <Card sx={{ display: 'flex', marginTop: 5 }}>
         <Box sx={{ padding: 3, width: "512px", height: "512px" }}>
           <canvas ref={canvasRef} id="snake2d-canvas" style={{ border: "4px solid #51279B", borderRadius: "0.5em", width: "100%", height: "100%" }} />
