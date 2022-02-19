@@ -6,11 +6,15 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Image from 'next/image'
+import snakeTitleImage from '../../../public/snake2d_title.png';
+
+let game: Game;
 
 const Snake2DPage: NextPage = () => {
   const canvasRef = useRef(null);
   const [score, setScore] = useState(0);
-  const [status, setStatus] = useState("Running");
+  const [status, setStatus] = useState("Idle");
 
   useEffect(() => {
     if (!canvasRef.current) {
@@ -18,15 +22,16 @@ const Snake2DPage: NextPage = () => {
     }
     const canvas = canvasRef.current as any;
     const context = canvas.getContext("webgl2");
-    const game: Game = new Game(context, canvas);
-    game.init();
+    game = new Game(context, canvas);
     game.registerOnScoreChanged((newScore: number) => {
-      setScore(score => score + 1);
+      setScore(_ => newScore);
     });
     game.registerOnGameDone(() => {
       setStatus("Game over");
     })
+    console.log({ game })
     game.start();
+    setStatus("Running");
   }, [canvasRef]);
 
 
@@ -45,10 +50,12 @@ const Snake2DPage: NextPage = () => {
           key="desc"
         />
       </Head>
-      <img alt="Snake 2D" src="/snake2d_title.png"/>
+      <Image
+        src={snakeTitleImage}
+        alt="Snake 2D" />
       <Card sx={{ display: 'flex', marginTop: 5 }}>
-        <Box sx={{ padding: 3, width: "512px", height: "512px" }}>
-          <canvas ref={canvasRef} id="snake2d-canvas" style={{ border: "4px solid #51279B", borderRadius: "0.5em", width: "100%", height: "100%" }} />
+        <Box sx={{ padding: 3 }}>
+          <canvas ref={canvasRef} id="snake2d-canvas" className="game-canvas" style={{ border: "4px solid #51279B", borderRadius: "0.5em" }} />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <CardContent sx={{ flex: '1 0 auto' }}>
