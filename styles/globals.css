@@ -5,3 +5,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #F7F7F7;
 }
+
+.fullscreen-enabled canvas {
+    background: #F7F7F7;
+}
+
+.fullscreen-enabled {
+    background: white;
+  }
