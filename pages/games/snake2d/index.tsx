@@ -21,7 +21,7 @@ const Snake2DPage: NextPage = () => {
   }, []);
 
   const onGameDone = useCallback((finalScore: number) => {
-    setScore(`Final score: ${finalScore}`);
+    setScore(`${finalScore} (end)`);
   }, []);
 
   const startGame = useCallback(() => {
