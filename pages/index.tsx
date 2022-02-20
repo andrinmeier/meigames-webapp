@@ -29,7 +29,7 @@ const Home: NextPage = () => {
       <Grid container spacing={0} alignItems="center" justifyContent="center">
         <Grid item xs={12} sm={3} sx={{ border: "2px solid #0E5814", borderRadius: "5px", padding: 3, margin: 3, background: "#E1E1E1" }}>
           <MeiLogo sx={{ fill: "#207227", width: "100%", height: "100%" }} />
-          <br/>
+          <br />
           <Typography color="secondary.dark" variant="h4" sx={{ textAlign: "center", fontWeight: "bold" }}>MeiGames</Typography>
         </Grid>
         <Grid item xs={12} sm={5} sx={{ border: "2px solid #0E5814", borderRadius: "5px", padding: 3, margin: 3, background: "#E1E1E1" }}>
@@ -42,11 +42,13 @@ const Home: NextPage = () => {
         </Grid>
         <Grid item xs={12} sm={4} sx={{ border: "2px solid #0E5814", borderRadius: "5px", padding: 3, margin: 3, background: "#E1E1E1" }}>
           <Box>
-            <Typography variant="body1">Developed by <Link color="inherit" underline="none" href="mailto:play@mei-games.com">Andrin Meier</Link></Typography>
-            <Typography variant="body1">Drawings by <Link color="inherit" underline="none" href="mailto:artist@mei-games.com">麻婷娜</Link></Typography>
-            <IconButton sx={{ paddingLeft: 0 }} color="inherit" href="https://github.com/andrinmeier/meigames-webapp" target="_blank" rel="noopener noreferrer">
-              <GitHubIcon fontSize="large" />
-            </IconButton>
+            <Typography color="primary" variant="body1">Developer <Link color="inherit" underline="none" href="mailto:play@mei-games.com"><b>Andrin Meier</b></Link></Typography>
+            <Typography color="primary" variant="body1">Artist <Link color="inherit" underline="none" href="mailto:artist@mei-games.com"><b>麻婷娜</b></Link></Typography>
+            <Box sx={{ justifyContent: "center", display: "flex", marginTop: 2 }}>
+              <IconButton sx={{ paddingLeft: 0 }} color="inherit" href="https://github.com/andrinmeier/meigames-webapp" target="_blank" rel="noopener noreferrer">
+                <GitHubIcon fontSize="small" sx={{ width: 48, height: 48 }} />
+              </IconButton>
+            </Box>
           </Box>
         </Grid>
       </Grid>
