@@ -14,10 +14,13 @@ const Footer = () => {
                 paddingBottom: 3
             }}>
                 <Container>
-                    <Typography variant="body2">© 2022 MeiGames. All rights reserved.</Typography>
-                    <br/>
-                    <Typography variant="body2"><Link color="inherit" underline="none" href="mailto:play@mei-games.com">Developed by Andrin Meier</Link></Typography>
-                    <Typography variant="body2"><Link color="inherit" underline="none" href="mailto:artist@mei-games.com">Drawings by 麻婷娜</Link></Typography>
+                    <Typography variant="body2">© 2022 MeiGames.</Typography>
+                    <br />
+                    <Typography variant="body2">Developed by <Link color="inherit" underline="none" href="mailto:play@mei-games.com">Andrin Meier</Link></Typography>
+                    <Typography variant="body2">Drawings by <Link color="inherit" underline="none" href="mailto:artist@mei-games.com">麻婷娜</Link></Typography>
+                    <IconButton sx={{ paddingLeft: 0 }} color="inherit" href="https://github.com/andrinmeier/meigames-webapp" target="_blank" rel="noopener noreferrer">
+                        <GitHubIcon fontSize="large" />
+                    </IconButton>
                 </Container>
             </Box >
         </footer >

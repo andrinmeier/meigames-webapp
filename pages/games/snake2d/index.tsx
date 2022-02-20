@@ -13,8 +13,7 @@ import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 
 const Snake2DPage: NextPage = () => {
   const canvasRef = useRef(null);
-  const [score, setScore] = useState(0);
-  const [status, setStatus] = useState("Idle");
+  const [score, setScore] = useState("0");
   const fullScreenHandle = useFullScreenHandle();
 
   const startGame = useCallback(() => {
@@ -25,13 +24,12 @@ const Snake2DPage: NextPage = () => {
     const context = canvas.getContext("webgl2");
     const game = new Game(context, canvas);
     game.registerOnScoreChanged((newScore: number) => {
-      setScore(_ => newScore);
+      setScore(_ => newScore.toString());
     });
     game.registerOnGameDone(() => {
-      setStatus("Game over");
+      setScore("Game over");
     })
     game.start();
-    setStatus("Running");
   }, [canvasRef]);
 
   return (
@@ -59,43 +57,39 @@ const Snake2DPage: NextPage = () => {
           <Grid item xs={12}>
             <FullScreen handle={fullScreenHandle}>
               <canvas ref={canvasRef} id="snake2d-canvas" className="game-canvas" />
-              <Box sx={{ display: fullScreenHandle.active ? "block" : "none", margin: 2 }}>
-                <IconButton size="large" color="primary" aria-label="Restart game" component="span" onClick={startGame}>
-                  <ReplayIcon />
-                </IconButton>
-                <IconButton size="large" color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.exit}>
-                  <FullscreenExitIcon />
-                </IconButton>
-              </Box>
+              <Grid style={{ minHeight: '10%' }} container sx={{ justifyContent: "center", alignItems: "center" }} spacing={5}>
+                <Grid item>
+                  <IconButton size="small" color="primary" aria-label="Restart game" component="span" onClick={startGame}>
+                    <ReplayIcon sx={{ width: 32, height: 32 }} />
+                  </IconButton>
+                </Grid>
+                <Grid item>
+                  <Typography component="div" variant="h4">
+                    {score}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <IconButton size="small" sx={{ display: fullScreenHandle.active ? "block" : "none" }} color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.exit}>
+                    <FullscreenExitIcon sx={{ width: 32, height: 32 }} />
+                  </IconButton>
+                  <IconButton size="small" sx={{ display: fullScreenHandle.active ? "none" : "block" }} color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.enter}>
+                    <FullscreenIcon sx={{ width: 32, height: 32 }} />
+                  </IconButton>
+                </Grid>
+              </Grid>
             </FullScreen>
           </Grid>
           <Grid item xs={12}>
-            <Typography component="div" variant="h5">
-              Score
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              {score}
-            </Typography>
-            <Typography component="div" variant="h5">
-              Status
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              {status}
-            </Typography>
-            <Typography component="div" variant="h5">
+            <Typography variant="h2">
               How to play
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
+            <Typography variant="body1">
               Use <b>A</b> to rotate left and <b>D</b> to rotate right.
+              <br />
+              On a mobile device <b>click</b> somewhere and <b>move your finger</b> while <b>not losing contact with your screen</b>.
               <br />
               Try to eat as much food as you can without hitting yourself or the wall.
             </Typography>
-            <IconButton color="primary" aria-label="Restart game" component="span" onClick={startGame}>
-              <ReplayIcon />
-            </IconButton>
-            <IconButton color="primary" aria-label="Enter Full-Screen Mode" component="span" onClick={fullScreenHandle.enter}>
-              <FullscreenIcon />
-            </IconButton>
           </Grid>
         </Grid>
       </Paper>
