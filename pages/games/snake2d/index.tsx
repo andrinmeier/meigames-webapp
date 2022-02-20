@@ -16,6 +16,14 @@ const Snake2DPage: NextPage = () => {
   const [score, setScore] = useState("0");
   const fullScreenHandle = useFullScreenHandle();
 
+  const displayScore = useCallback((newScore: number) => {
+    setScore(newScore.toString());
+  }, []);
+
+  const onGameDone = useCallback((finalScore: number) => {
+    setScore(`Final score: ${finalScore}`);
+  }, []);
+
   const startGame = useCallback(() => {
     if (!canvasRef.current) {
       return;
@@ -23,14 +31,11 @@ const Snake2DPage: NextPage = () => {
     const canvas = canvasRef.current as any;
     const context = canvas.getContext("webgl2");
     const game = new Game(context, canvas);
-    game.registerOnScoreChanged((newScore: number) => {
-      setScore(_ => newScore.toString());
-    });
-    game.registerOnGameDone(() => {
-      setScore("Game over");
-    })
+    game.registerOnScoreChanged(displayScore);
+    game.registerOnGameDone(onGameDone);
     game.start();
-  }, [canvasRef]);
+    setScore("0");
+  }, [canvasRef, displayScore, onGameDone]);
 
   return (
     <div>
@@ -65,15 +70,15 @@ const Snake2DPage: NextPage = () => {
                   </IconButton>
                 </Grid>
                 <Grid item>
-                  <Typography component="div" variant="h4">
+                  <Typography variant="h4">
                     {score}
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <IconButton size="small" sx={{ display: fullScreenHandle.active ? "block" : "none" }} color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.exit}>
+                  <IconButton size="small" sx={{ display: fullScreenHandle.active ? "block" : "none" }} color="primary" aria-label="Exit full screen" component="span" onClick={fullScreenHandle.exit}>
                     <FullscreenExitIcon sx={{ width: 32, height: 32 }} />
                   </IconButton>
-                  <IconButton size="small" sx={{ display: fullScreenHandle.active ? "none" : "block" }} color="primary" aria-label="Restart game" component="span" onClick={fullScreenHandle.enter}>
+                  <IconButton size="small" sx={{ display: fullScreenHandle.active ? "none" : "block" }} color="primary" aria-label="Enter full screen" component="span" onClick={fullScreenHandle.enter}>
                     <FullscreenIcon sx={{ width: 32, height: 32 }} />
                   </IconButton>
                 </Grid>
