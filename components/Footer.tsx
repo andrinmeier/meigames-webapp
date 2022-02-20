@@ -17,7 +17,7 @@ const Footer = () => {
                     <Typography variant="body2">© 2022 MeiGames. All rights reserved.</Typography>
                     <br/>
                     <Typography variant="body2"><Link color="inherit" underline="none" href="mailto:play@mei-games.com">Developed by Andrin Meier</Link></Typography>
-                    <Typography variant="body2"><Link color="inherit" underline="none" href="mailto:designer@mei-games.com">Design by 麻婷娜</Link></Typography>
+                    <Typography variant="body2"><Link color="inherit" underline="none" href="mailto:artist@mei-games.com">Drawings by 麻婷娜</Link></Typography>
                 </Container>
             </Box >
         </footer >
