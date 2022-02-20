@@ -11,6 +11,8 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 
+let game: Game;
+
 const Snake2DPage: NextPage = () => {
   const canvasRef = useRef(null);
   const [score, setScore] = useState("0");
@@ -30,11 +32,15 @@ const Snake2DPage: NextPage = () => {
     }
     const canvas = canvasRef.current as any;
     const context = canvas.getContext("webgl2");
-    const game = new Game(context, canvas);
-    game.registerOnScoreChanged(displayScore);
-    game.registerOnGameDone(onGameDone);
-    game.start();
+    if (game) {
+      game.stop();
+    } else {
+      game = new Game(context, canvas);
+      game.registerOnScoreChanged(displayScore);
+      game.registerOnGameDone(onGameDone);
+    }
     setScore("0");
+    game.start();
   }, [canvasRef, displayScore, onGameDone]);
 
   return (
