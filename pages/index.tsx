@@ -25,7 +25,9 @@ const Home: NextPage = () => {
           key="desc"
         />
       </Head>
-      <h1>Welcome to MeiGames!</h1>
+      <Typography variant="h1">
+        Games
+      </Typography>
       <Card sx={{ maxWidth: 345, padding: 3 }}>
         <Link href="/games/snake2d" passHref>
           <CardActionArea>

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { IconButton } from "@mui/material";
+import { IconButton, Link } from "@mui/material";
 
 const Footer = () => {
     return (
@@ -14,9 +14,12 @@ const Footer = () => {
                 paddingBottom: 3
             }}>
                 <Container>
-                    <Typography>© 2022 MeiGames. All rights reserved.</Typography>
+                    <Typography variant="body2">© 2022 MeiGames. All rights reserved.</Typography>
+                    <br/>
+                    <Typography variant="body2"><Link color="inherit" underline="none" href="mailto:play@mei-games.com">Developed by Andrin Meier</Link></Typography>
+                    <Typography variant="body2"><Link color="inherit" underline="none" href="mailto:designer@mei-games.com">Design by 麻婷娜</Link></Typography>
                 </Container>
-            </Box>
+            </Box >
         </footer >
     )
 }

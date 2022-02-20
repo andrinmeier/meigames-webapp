@@ -16,7 +16,21 @@ const theme = createTheme({
       light: '#3F9142',
       dark: '#0E5814'
     },
-  }
+  },
+  typography: {
+    fontFamily: [
+      'Open Sans',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
 });
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
