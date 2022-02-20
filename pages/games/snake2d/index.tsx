@@ -82,7 +82,7 @@ const Snake2DPage: NextPage = () => {
                   </IconButton>
                 </Grid>
                 <Grid item>
-                  <Typography variant="h4">
+                  <Typography color="primary" sx={{ fontWeight: "bold" }} variant="h4">
                     {score}
                   </Typography>
                 </Grid>
