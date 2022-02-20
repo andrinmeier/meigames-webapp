@@ -52,7 +52,8 @@ const Snake2DPage: NextPage = () => {
           <Grid item xs={12}>
             <Image
               src={snakeTitleImage}
-              alt="Snake 2D" />
+              alt="Snake 2D"
+              placeholder="blur"/>
           </Grid>
           <Grid item xs={12}>
             <FullScreen handle={fullScreenHandle}>

@@ -33,7 +33,8 @@ const Home: NextPage = () => {
           <CardActionArea>
             <Image
               src={snakeTitleImage}
-              alt="Snake 2D" />
+              alt="Snake 2D" 
+              placeholder="blur"/>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 Snake 2D
