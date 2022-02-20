@@ -10,6 +10,7 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
+import HomeIcon from '@mui/icons-material/Home';
 
 let game: Game;
 
@@ -58,13 +59,18 @@ const Snake2DPage: NextPage = () => {
           key="desc"
         />
       </Head>
-      <Paper sx={{ padding: 5, marginTop: 5 }}>
-        <Grid container spacing={5}>
+      <Paper sx={{ paddingLeft: 5, paddingRight: 5, paddingBottom: 5, marginTop: 5 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sx={{ marginBottom: 2, borderBottom: "1px solid #515151" }}>
+            <IconButton size="small" color="primary" aria-label="Home" component="a" href="/">
+              <HomeIcon sx={{ width: 32, height: 32 }} />
+            </IconButton>
+          </Grid>
           <Grid item xs={12}>
             <Image
               src={snakeTitleImage}
               alt="Snake 2D"
-              placeholder="blur"/>
+              placeholder="blur" />
           </Grid>
           <Grid item xs={12}>
             <FullScreen handle={fullScreenHandle}>
@@ -92,7 +98,7 @@ const Snake2DPage: NextPage = () => {
             </FullScreen>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h2">
+            <Typography variant="h2" sx={{ marginBottom: 2 }}>
               How to play
             </Typography>
             <Typography variant="body1">

@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
 import Footer from './Footer';
@@ -17,13 +17,11 @@ const Layout = (props: any) => {
                 <meta name="msapplication-TileColor" content="#603cba" />
                 <meta name="theme-color" content="#ffffff" />
             </Head>
-            <NavBar />
             <main>
-                <Container sx={{ marginTop: 2, marginBottom: 2 }}>
+                <Box sx={{ margin: 5 }}>
                     {children}
-                </Container>
+                </Box>
             </main>
-            <Footer />
         </div>
     )
 }
